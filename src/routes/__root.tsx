@@ -14,14 +14,12 @@ export const Route = createRootRoute({
         <Link to="/contacUs" className="[&.active]:font-bold">
           ContacUs
         </Link>
-        <Link to="/perro" className="[&.active]:font-bold">
-          Perro
-        </Link>
+        
       </div>
       <hr />
       <Outlet />
       <TanStackRouterDevtools />
     </>
   ),
-  
+
 })
