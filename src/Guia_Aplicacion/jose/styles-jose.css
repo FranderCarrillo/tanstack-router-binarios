@@ -1,0 +1,12 @@
+body{
+    background-color: #080C0A;
+    color: #c0e0deff;
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: 15% 1fr 15%;
+}
+
+.main{
+    grid-column: 2;
+}
