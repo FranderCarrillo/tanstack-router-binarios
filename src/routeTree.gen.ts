@@ -11,18 +11,11 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as PerroImport } from './routes/perro'
 import { Route as ContacUsImport } from './routes/contacUs'
 import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
-
-const PerroRoute = PerroImport.update({
-  id: '/perro',
-  path: '/perro',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const ContacUsRoute = ContacUsImport.update({
   id: '/contacUs',
@@ -67,13 +60,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContacUsImport
       parentRoute: typeof rootRoute
     }
-    '/perro': {
-      id: '/perro'
-      path: '/perro'
-      fullPath: '/perro'
-      preLoaderRoute: typeof PerroImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -83,14 +69,12 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contacUs': typeof ContacUsRoute
-  '/perro': typeof PerroRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contacUs': typeof ContacUsRoute
-  '/perro': typeof PerroRoute
 }
 
 export interface FileRoutesById {
@@ -98,15 +82,14 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contacUs': typeof ContacUsRoute
-  '/perro': typeof PerroRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contacUs' | '/perro'
+  fullPaths: '/' | '/about' | '/contacUs'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contacUs' | '/perro'
-  id: '__root__' | '/' | '/about' | '/contacUs' | '/perro'
+  to: '/' | '/about' | '/contacUs'
+  id: '__root__' | '/' | '/about' | '/contacUs'
   fileRoutesById: FileRoutesById
 }
 
@@ -114,14 +97,12 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContacUsRoute: typeof ContacUsRoute
-  PerroRoute: typeof PerroRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContacUsRoute: ContacUsRoute,
-  PerroRoute: PerroRoute,
 }
 
 export const routeTree = rootRoute
@@ -136,8 +117,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/about",
-        "/contacUs",
-        "/perro"
+        "/contacUs"
       ]
     },
     "/": {
@@ -148,9 +128,6 @@ export const routeTree = rootRoute
     },
     "/contacUs": {
       "filePath": "contacUs.tsx"
-    },
-    "/perro": {
-      "filePath": "perro.tsx"
     }
   }
 }
