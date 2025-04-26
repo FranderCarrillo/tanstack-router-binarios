@@ -10,15 +10,88 @@
     
     <div class="container-organization-paths">
         <p class="text-organization-paths">
-            Dentro de la carpeta src, deberás de crear <strong>routes</strong>, posteriormente, dentro de la carpeta routes, deberas de crear el archivo
+            Dentro de la carpeta <strong>src</strong>, deberás de crear la carpeta <strong>routes</strong>, posteriormente, dentro de la carpeta <strong>routes</strong>, deberas de crear el archivo
             <strong>__root.tsx.</strong>
+        </p>
+
+        <p class="text-organization-paths">
+          El archivo <strong>__root.tsx</strong> contiene el componente raíz de la aplicación. Este componente define la estructura base de navegación y renderiza el contenido de las rutas hijas mediante <Outlet />, utilizando TanStack Router para el manejo del enrutamiento.
         </p>
 
         <div class="file-label">
             <h3>src/routes/__root.tsx</h3>
         </div>
-          
+        
+        <pre class="code-block">
+import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'          
 
+export const Route = createRootRoute({
+    component: () =&gt; (
+      &lt;&gt;
+        &lt;div className="p-2 flex gap-2"&gt;
+          &lt;Link to="/" className="[&amp;.active]:font-bold"&gt;
+            Home
+          &lt;/Link&gt;{' '}
+          &lt;Link to="/about" className="[&amp;.active]:font-bold"&gt;
+            About
+           &lt;/Link&gt;{' '}
+          &lt;Link to="/contacUs" className="[&amp;.active]:font-bold"&gt;
+            ContacUs
+          &lt;/Link&gt;
+        &lt;/div&gt;
+        &lt;hr /&gt;
+       &lt;Outlet /&gt;
+        &lt;TanStackRouterDevtools /&gt;
+      &lt;/&gt;
+    ),
+})
+       </pre>
+          
+       <p class="text-organization-paths">
+        Luego de crear el archivo <strong>__root.tsx</strong>, deberás crear el archivo <strong>index.tsx</strong> y los demás archivos que necesites dentro de la carpeta <strong>routes</strong>. El archivo <strong>index.tsx</strong> contendrá los componentes que se renderizarán en la ruta raíz de la aplicación.
+      </p>
+
+      <div class="file-label">
+        <h3>src/routes/index.tsx</h3>
+      </div>
+      
+      <pre class="code-block">
+import { createFileRoute } from '@tanstack/react-router'
+        
+export const Route = createFileRoute('/')({
+  component: Index,
+})
+        
+function Index() {
+  return (
+    &lt;div className="p-2"&gt;
+      &lt;h3&gt;Welcome Home!&lt;/h3&gt;
+    &lt;/div&gt;
+  )
+}
+        </pre>
+
+        <p class="text-organization-paths">
+          El archivo <strong>index.tsx</strong> define la ruta raíz (<code>'/'</code>) de la aplicación. Este archivo contiene un componente que renderiza un mensaje de bienvenida cuando el usuario accede a la página principal.
+        </p>
+        
+        <div class="file-label">
+          <h3>src/routes/about.tsx</h3>
+        </div>
+
+        <pre class="code-block">
+import { createFileRoute } from '@tanstack/react-router'
+          
+export const Route = createFileRoute('/about')({
+  component: About,
+})
+          
+function About() {
+  return &lt;div className="p-2"&gt;Hello from About!&lt;/div&gt;
+}
+          </pre>
+          
 
     </div>
 
