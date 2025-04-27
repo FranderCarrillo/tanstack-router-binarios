@@ -7,8 +7,8 @@ const NavigationInfo = () => {
     <section className='Navigation-info'>
       
       <div className='Navigation-info-container'>
-          <h1 className='titles-guide-navigation'>Guía de Navegación</h1>
 
+          <h1 className='titles-guide-navigation'>Guía de Navegación</h1>
 
           <div className='guide-navigation-steps'>
 
@@ -155,12 +155,12 @@ if (!rootElement.innerHTML) {
               </code>
             </pre>
 
-              <p>Una vez ejecutado el comando se creará el archivo </p>
+            <p className='text-guide-navigation'>Una vez ejecutado el comando se creará el archivo </p>
       
               <div className='guide-navigation-first-step-container-paths'>
                 <h3 className='text-guide-navigation'>routeTree.gen.ts</h3>
               </div>
-               <p>que no debes tocar, allí se generarán las rutas de la aplicación automáticamente, cada vez que crees un nuevo archivo dentro de <strong>__root.tsx</strong> y ejecutes el programa.</p>
+               <p className='text-guide-navigation'>que no debes tocar, allí se generarán las rutas de la aplicación automáticamente, cada vez que crees un nuevo archivo dentro de <strong>__root.tsx</strong> y ejecutes el programa.</p>
 
             </div>  
           </div>
