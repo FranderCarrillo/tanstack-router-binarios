@@ -18,7 +18,7 @@ const TanstackRouterInfo = () => {
                 <dd>Se refiere al proceso de moverse entre diferentes páginas o rutas dentro de una aplicación.
                     <ul>
                         <li>Programáticamente usando router.navigate()</li>
-                        <li>Declarativamente utilizando el componente<pre >&lt;/Link&gt;</pre></li>
+                        <li>Declarativamente utilizando el componente &lt;/Link&gt;</li>
                         <li>Mediante formularios</li>
                     </ul>
                 </dd>

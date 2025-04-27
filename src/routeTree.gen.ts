@@ -11,6 +11,7 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as TanstackRouteImport } from './routes/tanstackRoute'
 import { Route as ProtectedRoutesImport } from './routes/protectedRoutes'
 import { Route as ProfileImport } from './routes/profile'
 import { Route as NavigationImport } from './routes/navigation'
@@ -18,6 +19,12 @@ import { Route as LoginImport } from './routes/login'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
+
+const TanstackRouteRoute = TanstackRouteImport.update({
+  id: '/tanstackRoute',
+  path: '/tanstackRoute',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const ProtectedRoutesRoute = ProtectedRoutesImport.update({
   id: '/protectedRoutes',
@@ -88,6 +95,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedRoutesImport
       parentRoute: typeof rootRoute
     }
+    '/tanstackRoute': {
+      id: '/tanstackRoute'
+      path: '/tanstackRoute'
+      fullPath: '/tanstackRoute'
+      preLoaderRoute: typeof TanstackRouteImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -99,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/navigation': typeof NavigationRoute
   '/profile': typeof ProfileRoute
   '/protectedRoutes': typeof ProtectedRoutesRoute
+  '/tanstackRoute': typeof TanstackRouteRoute
 }
 
 export interface FileRoutesByTo {
@@ -107,6 +122,7 @@ export interface FileRoutesByTo {
   '/navigation': typeof NavigationRoute
   '/profile': typeof ProfileRoute
   '/protectedRoutes': typeof ProtectedRoutesRoute
+  '/tanstackRoute': typeof TanstackRouteRoute
 }
 
 export interface FileRoutesById {
@@ -116,13 +132,26 @@ export interface FileRoutesById {
   '/navigation': typeof NavigationRoute
   '/profile': typeof ProfileRoute
   '/protectedRoutes': typeof ProtectedRoutesRoute
+  '/tanstackRoute': typeof TanstackRouteRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/navigation' | '/profile' | '/protectedRoutes'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/navigation'
+    | '/profile'
+    | '/protectedRoutes'
+    | '/tanstackRoute'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/navigation' | '/profile' | '/protectedRoutes'
+  to:
+    | '/'
+    | '/login'
+    | '/navigation'
+    | '/profile'
+    | '/protectedRoutes'
+    | '/tanstackRoute'
   id:
     | '__root__'
     | '/'
@@ -130,6 +159,7 @@ export interface FileRouteTypes {
     | '/navigation'
     | '/profile'
     | '/protectedRoutes'
+    | '/tanstackRoute'
   fileRoutesById: FileRoutesById
 }
 
@@ -139,6 +169,7 @@ export interface RootRouteChildren {
   NavigationRoute: typeof NavigationRoute
   ProfileRoute: typeof ProfileRoute
   ProtectedRoutesRoute: typeof ProtectedRoutesRoute
+  TanstackRouteRoute: typeof TanstackRouteRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -147,6 +178,7 @@ const rootRouteChildren: RootRouteChildren = {
   NavigationRoute: NavigationRoute,
   ProfileRoute: ProfileRoute,
   ProtectedRoutesRoute: ProtectedRoutesRoute,
+  TanstackRouteRoute: TanstackRouteRoute,
 }
 
 export const routeTree = rootRoute
@@ -163,7 +195,8 @@ export const routeTree = rootRoute
         "/login",
         "/navigation",
         "/profile",
-        "/protectedRoutes"
+        "/protectedRoutes",
+        "/tanstackRoute"
       ]
     },
     "/": {
@@ -180,6 +213,9 @@ export const routeTree = rootRoute
     },
     "/protectedRoutes": {
       "filePath": "protectedRoutes.tsx"
+    },
+    "/tanstackRoute": {
+      "filePath": "tanstackRoute.tsx"
     }
   }
 }
