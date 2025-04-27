@@ -66,7 +66,7 @@ const TanstackRouterInfo = () => {
       <span>
         Puedes iniciar rápidamente un proyecto nuevo usando el generador automático de TanStack Router.
       </span>
-      <pre className="my-pre">
+      <pre className="code-block-content">
         <span className="morado">npx</span><span className="azul"> create-tsrouter-app@latest my-app --template file-router</span>
       </pre>
 
