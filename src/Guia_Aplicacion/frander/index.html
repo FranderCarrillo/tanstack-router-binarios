@@ -254,7 +254,66 @@ export const Route = createRootRouteWithContext&lt;RouterContext&gt;()({
             Además se deben de agregar los archivos <strong>profile.tsx</strong> donde solo se puede acceder si el usuario está autenticado, de lo contrario se redirigirá a la página de inicio de sesión, <strong>login.tsx</strong>.
           </p>
 
-          
+          <div class="file-label">
+            <h3>src/routes/profile.tsx</h3>
+          </div>
+
+          <pre class="code-block">
+import { createFileRoute } from '@tanstack/react-router';
+            
+export const Route = createFileRoute('/profile')({
+  component: RouteComponent,
+});
+            
+function RouteComponent() {
+  return &lt;div&gt;Hello "/profile"!&lt;/div&gt;;
+}
+          </pre>
+            
+          <div class="file-label">
+            <h3>src/routes/login.tsx</h3>
+          </div>
+
+          <pre class="code-block">
+import { createFileRoute, useRouter } from '@tanstack/react-router';
+import { isAuthenticated, signIn, signOut } from '../utils/auth';
+            
+export const Route = createFileRoute('/login')({
+  component: Login,
+});
+            
+function Login() {
+  const router = useRouter();
+  return (
+    &lt;&gt;
+      &lt;h2&gt;Login&lt;/h2&gt;
+      {isAuthenticated() ? (
+        &lt;&gt;
+          &lt;p&gt;Hello user!&lt;/p&gt;
+          &lt;button
+            onClick={async () =&gt; {
+              signOut();
+              router.invalidate();
+            }}
+          &gt;
+            Sign out
+          &lt;/button&gt;
+        &lt;/&gt;
+      ) : (
+        &lt;button
+          onClick={async () =&gt; {
+            signIn();
+            router.invalidate();
+          }}
+        &gt;
+          Sign in
+        &lt;/button&gt;
+      )}
+    &lt;/&gt;
+  );
+}
+          </pre>
+            
 
     </div>
 
