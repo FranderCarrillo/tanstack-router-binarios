@@ -145,7 +145,7 @@ if (!rootElement.innerHTML) {
               <h2 className='titles-guide-navigation'>Cuarto paso</h2>
               
               <div className='guide-navigation-first-step-container-paths'>
-                <h3 className='text-guide-navigation'>Ejectura el comando</h3>
+                <h3 className='text-guide-navigation'>Ejecuta el comando</h3>
               </div>
 
               <pre className="code-block-content">
