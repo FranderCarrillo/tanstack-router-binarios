@@ -1,4 +1,4 @@
-import React from 'react'
+import './navigationInfo.css'
 
 const TanstackRouterInfo = () => {
   return (
