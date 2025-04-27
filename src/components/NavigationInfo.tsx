@@ -21,7 +21,10 @@ const NavigationInfo = () => {
 
             <pre className="code-block-content">
               <code >
-{`import { createRootRoute, createRootRouteWithContext, Link, Outlet } from '@tanstack/react-router'
+{`import { createRootRoute, 
+createRootRouteWithContext,
+Link,
+Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
 export const Route = createRootRoute({
