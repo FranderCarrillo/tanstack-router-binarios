@@ -6,6 +6,6 @@ import NavigationInfo from './components/NavigationInfo.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <NavigationInfo />
+    <App />
   </React.StrictMode>,
 )
