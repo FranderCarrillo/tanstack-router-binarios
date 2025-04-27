@@ -17,6 +17,7 @@ import { Route as ProfileImport } from './routes/profile'
 import { Route as NavigationImport } from './routes/navigation'
 import { Route as LoginImport } from './routes/login'
 import { Route as IndexImport } from './routes/index'
+import { Route as ApiExampleUserImport } from './routes/apiExample/user'
 
 // Create/Update Routes
 
@@ -53,6 +54,12 @@ const LoginRoute = LoginImport.update({
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ApiExampleUserRoute = ApiExampleUserImport.update({
+  id: '/apiExample/user',
+  path: '/apiExample/user',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -102,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TanstackRouteImport
       parentRoute: typeof rootRoute
     }
+    '/apiExample/user': {
+      id: '/apiExample/user'
+      path: '/apiExample/user'
+      fullPath: '/apiExample/user'
+      preLoaderRoute: typeof ApiExampleUserImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -114,6 +128,7 @@ export interface FileRoutesByFullPath {
   '/profile': typeof ProfileRoute
   '/protectedRoutes': typeof ProtectedRoutesRoute
   '/tanstackRoute': typeof TanstackRouteRoute
+  '/apiExample/user': typeof ApiExampleUserRoute
 }
 
 export interface FileRoutesByTo {
@@ -123,6 +138,7 @@ export interface FileRoutesByTo {
   '/profile': typeof ProfileRoute
   '/protectedRoutes': typeof ProtectedRoutesRoute
   '/tanstackRoute': typeof TanstackRouteRoute
+  '/apiExample/user': typeof ApiExampleUserRoute
 }
 
 export interface FileRoutesById {
@@ -133,6 +149,7 @@ export interface FileRoutesById {
   '/profile': typeof ProfileRoute
   '/protectedRoutes': typeof ProtectedRoutesRoute
   '/tanstackRoute': typeof TanstackRouteRoute
+  '/apiExample/user': typeof ApiExampleUserRoute
 }
 
 export interface FileRouteTypes {
@@ -144,6 +161,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/protectedRoutes'
     | '/tanstackRoute'
+    | '/apiExample/user'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -152,6 +170,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/protectedRoutes'
     | '/tanstackRoute'
+    | '/apiExample/user'
   id:
     | '__root__'
     | '/'
@@ -160,6 +179,7 @@ export interface FileRouteTypes {
     | '/profile'
     | '/protectedRoutes'
     | '/tanstackRoute'
+    | '/apiExample/user'
   fileRoutesById: FileRoutesById
 }
 
@@ -170,6 +190,7 @@ export interface RootRouteChildren {
   ProfileRoute: typeof ProfileRoute
   ProtectedRoutesRoute: typeof ProtectedRoutesRoute
   TanstackRouteRoute: typeof TanstackRouteRoute
+  ApiExampleUserRoute: typeof ApiExampleUserRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -179,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   ProfileRoute: ProfileRoute,
   ProtectedRoutesRoute: ProtectedRoutesRoute,
   TanstackRouteRoute: TanstackRouteRoute,
+  ApiExampleUserRoute: ApiExampleUserRoute,
 }
 
 export const routeTree = rootRoute
@@ -196,7 +218,8 @@ export const routeTree = rootRoute
         "/navigation",
         "/profile",
         "/protectedRoutes",
-        "/tanstackRoute"
+        "/tanstackRoute",
+        "/apiExample/user"
       ]
     },
     "/": {
@@ -216,6 +239,9 @@ export const routeTree = rootRoute
     },
     "/tanstackRoute": {
       "filePath": "tanstackRoute.tsx"
+    },
+    "/apiExample/user": {
+      "filePath": "apiExample/user.tsx"
     }
   }
 }

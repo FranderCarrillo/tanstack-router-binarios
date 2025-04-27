@@ -77,15 +77,6 @@ body{
     margin-top: 1rem;
   }
 
-  .references {
-    background-color: #c0e0deff;
-    padding: 10px;
-    border-left: 5px solid #3c474bff;
-    margin: 20px 0;
-    list-style: none;
-    text-align: left; 
-}
-
 
   .morado {
     color: #c792ea;
@@ -102,3 +93,12 @@ body{
     color: navajowhite;
   }
   
+  .references {
+    background-color: #162521ff;
+    color: white;
+    padding: 10px;
+    border-left: 5px solid #a1fe20ff;
+    margin: 20px 0;
+    list-style: none;
+    text-align: left; 
+}

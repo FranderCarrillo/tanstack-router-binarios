@@ -1,9 +1,24 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, redirect } from '@tanstack/react-router'
+import { useGetUser } from '../services/User/userHook'
+import UserCard from '../card/user/UserCard';
 
 export const Route = createFileRoute('/profile')({
-  component: RouteComponent,
+  beforeLoad: ({ context }) => {
+    const { isLogged } = context.authentication;
+    if (!isLogged()) {
+      throw redirect({
+        to: "/login",
+      });
+    }
+  },
+  component: Profile,
 })
 
-function RouteComponent() {
-  return <div>Hello "/profile"!</div>
+function Profile() {
+  const {user} = useGetUser(1);
+  return (
+    <div>
+      <UserCard user={user} />
+    </div>
+  );
 }
