@@ -11,16 +11,17 @@ export const Route = createRootRouteWithContext<RouterContext>()({
     <>
       <div className="p-2 flex gap-2">
         <Link to="/" className="[&.active]:font-bold">
-          Home
+          TanStack Router
         </Link>{' '}
-        <Link to="/about" className="[&.active]:font-bold">
-          About
-        </Link>{' '}
-        
         <Link to="/login" className="[&.active]:font-bold">
           Login
+        </Link>{' '}
+        <Link to="/navigation" className="[&.active]:font-bold">
+          Navigation
+        </Link>{' '}
+        <Link to="/protectedRoutes" className="[&.active]:font-bold">
+          Protected Routes
         </Link>
-
       </div>
       <hr />
       <Outlet />
