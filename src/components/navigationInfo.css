@@ -21,14 +21,14 @@ body{
 
 .Navigation-info-container{
 
-    height: 99%;
+    height: 100%;
     width: 100%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    max-width: 50%;
+    max-width: 70%;
     margin: 0 ;
     padding: 0;
 
@@ -59,10 +59,10 @@ body{
 .code-block-content{
     color: white;
     width: 100%;
-    border-radius: 14px;
+    border-radius: 16px;
     background-color: #162521ff;
     padding: 12px;
-    border: 4px solid #a1fe20ff;
+    border: 2px solid #a1fe20ff;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
     font-size: 15px;
   }

@@ -19,9 +19,9 @@ export const Route = createRootRouteWithContext<RouterContext>()({
         <Link to="/protectedRoutes" className="[&.active]:font-bold">
           Protected Routes
         </Link>{' '}
-        <Link to="/profile" className="[&.active]:font-bold">
+        {/* <Link to="/profile" className="[&.active]:font-bold">
           Profile
-        </Link>
+        </Link> */}
       </div>
       <hr />
       <Outlet />

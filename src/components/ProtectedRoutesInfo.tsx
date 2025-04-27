@@ -1,5 +1,6 @@
 import React from 'react'
 import './navigationInfo.css'
+import { Link } from '@tanstack/react-router'
 const ProtectedRoutesInfo = () => {
   return (
     <div>
@@ -16,7 +17,7 @@ const ProtectedRoutesInfo = () => {
 
             <h2 className='titles-guide-navigation'>Primer paso</h2>
 
-            <p className='text-guide-navigation'>Crea la siguiente ruta de archivos y coloca lo siguiente</p>
+            <p className='text-guide-navigation'>Crea la siguiente ruta de archivos y coloca lo siguiente, esto para crear una hook de autenticación, donde se permite, Iniciar, Cerrar y verificar la sesión.</p>
 
               <div className='guide-navigation-first-step-container-paths'>
                 <h3 className='text-guide-navigation'>src/hooks/useAuth.tsx</h3>
@@ -50,7 +51,7 @@ export type AuthContext = ReturnType<typeof useAuth>;
 
             <h2 className='titles-guide-navigation'>Segundo paso</h2>
 
-            <p className='text-guide-navigation'>Crea la siguiente ruta de archivos y coloca lo siguiente</p>
+            <p className='text-guide-navigation'>Crea la siguiente ruta de archivos y coloca lo siguiente, funciones que retornan si el usuarió está autenticado, no lo está o cerró cesión. </p>
 
               <div className='guide-navigation-first-step-container-paths'>
                 <h3 className='text-guide-navigation'>src/utils/Auth.ts</h3>
@@ -81,7 +82,10 @@ export type AuthContext = ReturnType<typeof useAuth>;
 
             <h2 className='titles-guide-navigation'>Tercer paso</h2>
 
-            <p className='text-guide-navigation'>Crea la siguiente ruta de archivos y coloca lo siguiente</p>
+            <p className='text-guide-navigation'>
+              Crea el siguiente archivo para definir la ruta principal de la aplicación, donde se mostrará una página de bienvenida básica.
+            </p>
+
 
               <div className='guide-navigation-first-step-container-paths'>
                 <h3 className='text-guide-navigation'>src/routes/index.tsx</h3>
@@ -113,9 +117,12 @@ function Index() {
           {/* inicio */}
           <div className='guide-navigation-steps'>
 
-            <h2 className='titles-guide-navigation'>Quinto paso</h2>
+            <h2 className='titles-guide-navigation'>Cuarto paso</h2>
 
-            <p className='text-guide-navigation'>Agrega lo siguiente en la ruta de archivos</p>
+            <p className='text-guide-navigation'>
+              Agrega el siguiente contenido en el archivo especificado. Aquí configuraremos el `root route` y la navegación principal entre las páginas: Home, Login y Profile.
+            </p>
+
 
               <div className='guide-navigation-first-step-container-paths'>
                 <h3 className='text-guide-navigation'>src/routes/__root.tsx</h3>
@@ -162,9 +169,12 @@ export const Route = createRootRouteWithContext<RouterContext>()({
           {/* inicio */}
           <div className='guide-navigation-steps'>
 
-            <h2 className='titles-guide-navigation'>Sexto paso</h2>
+            <h2 className='titles-guide-navigation'>Quinto paso</h2>
 
-            <p className='text-guide-navigation'>Crea la siguiente ruta de archivos y coloca lo siguiente</p>
+            <p className='text-guide-navigation'>
+              Crea el archivo para la ruta de Profile. Aquí protegeremos la ruta verificando que el usuario esté autenticado antes de permitir el acceso.
+            </p>
+
 
               <div className='guide-navigation-first-step-container-paths'>
                 <h3 className='text-guide-navigation'>src/routes/profile.tsx</h3>
@@ -172,14 +182,29 @@ export const Route = createRootRouteWithContext<RouterContext>()({
 
               <pre className="code-block-content">
                 <code>
-{`import { createFileRoute } from '@tanstack/react-router';
-            
+{`import { createFileRoute, redirect } from '@tanstack/react-router'
+import { useGetUser } from '../services/User/userHook'
+import UserCard from '../card/user/UserCard';
+
 export const Route = createFileRoute('/profile')({
-  component: RouteComponent,
-});
-            
-function RouteComponent() {
-  return &lt;div&gt;Hello "/profile"!&lt;/div&gt;;
+  beforeLoad: ({ context }) => {
+    const { isLogged } = context.authentication;
+    if (!isLogged()) {
+      throw redirect({
+        to: "/login",
+      });
+    }
+  },
+  component: Profile,
+})
+
+function Profile() {
+  const {user} = useGetUser(1);
+  return (
+    <div>
+      <UserCard user={user} />
+    </div>
+  );
 }`}
                </code>
             </pre>
@@ -190,9 +215,12 @@ function RouteComponent() {
           {/* inicio */}
           <div className='guide-navigation-steps'>
 
-            <h2 className='titles-guide-navigation'>Séptimo paso</h2>
+            <h2 className='titles-guide-navigation'>Sexto paso</h2>
 
-            <p className='text-guide-navigation'>Crea la siguiente ruta de archivos y coloca lo siguiente</p>
+            <p className='text-guide-navigation'>
+              Crea el archivo para la ruta de Login. Aquí gestionaremos el inicio y cierre de sesión del usuario utilizando botones.
+            </p>
+
 
               <div className='guide-navigation-first-step-container-paths'>
                 <h3 className='text-guide-navigation'>src/routes/login.tsx</h3>
@@ -242,29 +270,40 @@ function Login() {
           </div> 
           {/* final */}
 
-
           {/* inicio */}
           <div className='guide-navigation-steps'>
 
-            <h2 className='titles-guide-navigation'>Octavo paso</h2>
+            <h2 className='titles-guide-navigation'>Séptimo paso</h2>
 
-            <p className='text-guide-navigation'>Crea la siguiente ruta de archivos y coloca lo siguiente</p>
+            <p className='text-guide-navigation'>
+              Modifica el archivo App.tsx para integrar el router y pasar el contexto de autenticación a toda la aplicación.
+            </p>
+
 
               <div className='guide-navigation-first-step-container-paths'>
-                <h3 className='text-guide-navigation'>src/routes/profile.tsx</h3>
+                <h3 className='text-guide-navigation'>src/app.tsx</h3>
               </div>
 
               <pre className="code-block-content">
                 <code>
-{`import { createFileRoute } from '@tanstack/react-router'
+{`import { RouterProvider, createRouter } from "@tanstack/react-router";
+import "./App.css";
+import { routeTree } from "./routeTree.gen";
+import { useAuth } from "./hooks/useAuth";
 
-export const Route = createFileRoute('/profile')({
-  component: RouteComponent,
-})
-
-function RouteComponent() {
-  return <div>Hello "/profile"!</div>
+const router = createRouter({ routeTree,context: { authentication: undefined! },});
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router;
+  }
 }
+
+function App() {
+  const authentication = useAuth();
+  return <RouterProvider router={router} context={{ authentication }} />;
+}
+
+export default App;
 `}
                </code>
             </pre>
@@ -273,14 +312,21 @@ function RouteComponent() {
           {/* final */}
 
 
+
           {/* inicio */}
           <div className='guide-navigation-steps'>
 
             <h2 className='titles-guide-navigation'>Nota</h2>
 
-            <p className='text-guide-navigation'>El flujo de este ejemplo se basa en crear realizar un autenticación de un Usuario para poder accerder a la información de alguna Ruta en específico. En este ejemplo un Usuario no debe de poder acceder a la ruta Profile, sin antes haber hecho login.</p>
+             
+            <Link to="/profile" className="[&.active]:font-bold">
+              Profile
+            </Link> 
 
-
+            <p className='text-guide-navigation'>
+              El flujo de este ejemplo se basa en proteger rutas mediante autenticación. Un usuario no podrá acceder a la página de Profile si no ha iniciado sesión previamente.
+            </p>
+            
           </div> 
           {/* final */}
 

@@ -1,6 +1,7 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { useGetUser } from '../services/User/userHook'
 import UserCard from '../card/user/UserCard';
+import ProfileGuide from '../components/ProfileGuide';
 
 export const Route = createFileRoute('/profile')({
   beforeLoad: ({ context }) => {
@@ -19,6 +20,9 @@ function Profile() {
   return (
     <div>
       <UserCard user={user} />
+      <br />
+      <br />
+      <ProfileGuide />
     </div>
   );
 }
