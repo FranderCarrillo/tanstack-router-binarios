@@ -64,8 +64,7 @@ const TanstackRouterInfo = () => {
       <div><h3>Inicio Rápido</h3></div>
       <h4>Manera automática para un primer proyecto</h4>
       <span>
-        Puedes iniciar rápidamente un proyecto nuevo usando el generador automático de TanStack 
-        Router, que configura todo lo necesario en pocos pasos para comenzar a trabajar de inmediato.
+        Puedes iniciar rápidamente un proyecto nuevo usando el generador automático de TanStack Router.
       </span>
       <pre className="my-pre">
         <span className="morado">npx</span><span className="azul"> create-tsrouter-app@latest my-app --template file-router</span>
