@@ -46,7 +46,7 @@ const TanstackRouterInfo = () => {
       <div><h3>Instalación</h3></div>
       <span>TanStack Router es compatible con cualquiera de los administradores de NPM</span>
       <div>
-        <pre className="my-pre">
+      <pre className="code-block-content">
           <span className="morado">npm</span><span className="azul"> install @tanstack/react-router</span><br />
           <span className="gris"># or</span><br />
           <span className="morado">pnpm</span><span className="azul"> add @tanstack/react-router</span><br />
@@ -76,7 +76,7 @@ const TanstackRouterInfo = () => {
         instalando los paquetes necesarios y ajustando la estructura según tu necesidad.
       </span>
       <div>
-        <pre className="my-pre">
+      <pre className="code-block-content">
           <span className="morado">npm</span><span className="azul"> install @tanstack/react-router @tanstack/react-router-devtools</span><br />
           <span className="morado">npm</span><span className="azul"> install</span><span className="naranja"> -D</span><span className="azul"> @tanstack/router-plugin</span><br />
           <span className="gris"># or</span><br />
@@ -95,7 +95,7 @@ const TanstackRouterInfo = () => {
 
       <div><h3>Configuración del complemento Vite</h3></div>
       <div>
-        <pre className="my-pre">
+      <pre className="code-block-content">
           import {'{'} defineConfig {'}'} from 'vite'<br />
           import react from '@vitejs/plugin-react'<br />
           import {'{'} TanStackRouterVite {'}'} from '@tanstack/router-plugin/vite'<br /><br />
