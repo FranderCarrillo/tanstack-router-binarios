@@ -6,7 +6,7 @@ export const ProfileGuide = () => {
 
       <div className='Navigation-info-container'>
 
-        <h1 className='titles-guide-navigation'>Guía: Mostrar Usuario Protegido con TanStack Router</h1>
+        <h1 className='titles-guide-navigation'>Guía Mostrar Usuario Protegido con TanStack Router</h1>
 
         {/* PASO 1 */}
         <div className='guide-navigation-steps'>
