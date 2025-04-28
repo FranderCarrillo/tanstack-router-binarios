@@ -40,3 +40,55 @@
 .read-the-docs {
   color: #888;
 }
+
+/* login.css */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.login-title {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+}
+
+.login-content {
+  text-align: center;
+}
+
+.login-message {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #555;
+}
+
+.login-button,
+.logout-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.login-button {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+.logout-button {
+  background-color: #ff4d4f;
+  color: #fff;
+}
+
+.login-button:hover {
+  background-color: #40a9ff;
+}
+
+.logout-button:hover {
+  background-color: #ff7875;
+}
