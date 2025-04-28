@@ -318,11 +318,6 @@ export default App;
 
             <h2 className='titles-guide-navigation'>Nota</h2>
 
-             
-            <Link to="/profile" className="[&.active]:font-bold">
-              Profile
-            </Link> 
-
             <p className='text-guide-navigation'>
               El flujo de este ejemplo se basa en proteger rutas mediante autenticación. Un usuario no podrá acceder a la página de Profile si no ha iniciado sesión previamente.
             </p>

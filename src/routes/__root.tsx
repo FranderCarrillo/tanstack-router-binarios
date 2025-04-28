@@ -15,6 +15,9 @@ export const Route = createRootRoute({
         <Link to="/protectedRoutes" className="[&.active]:font-bold">
           Protected Routes
         </Link>{' '}
+        <Link to="/apiImplementation" className="[&.active]:font-bold">
+          Api Implementation
+        </Link>
       </div>
       <hr />
       <Outlet />

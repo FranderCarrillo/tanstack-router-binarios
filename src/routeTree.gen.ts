@@ -12,9 +12,8 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as ProtectedRoutesImport } from './routes/protectedRoutes'
-import { Route as ProfileImport } from './routes/profile'
 import { Route as NavigationImport } from './routes/navigation'
-import { Route as LoginImport } from './routes/login'
+import { Route as ApiImplementationImport } from './routes/apiImplementation'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
@@ -25,21 +24,15 @@ const ProtectedRoutesRoute = ProtectedRoutesImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const ProfileRoute = ProfileImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => rootRoute,
-} as any)
-
 const NavigationRoute = NavigationImport.update({
   id: '/navigation',
   path: '/navigation',
   getParentRoute: () => rootRoute,
 } as any)
 
-const LoginRoute = LoginImport.update({
-  id: '/login',
-  path: '/login',
+const ApiImplementationRoute = ApiImplementationImport.update({
+  id: '/apiImplementation',
+  path: '/apiImplementation',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -60,11 +53,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginImport
+    '/apiImplementation': {
+      id: '/apiImplementation'
+      path: '/apiImplementation'
+      fullPath: '/apiImplementation'
+      preLoaderRoute: typeof ApiImplementationImport
       parentRoute: typeof rootRoute
     }
     '/navigation': {
@@ -72,13 +65,6 @@ declare module '@tanstack/react-router' {
       path: '/navigation'
       fullPath: '/navigation'
       preLoaderRoute: typeof NavigationImport
-      parentRoute: typeof rootRoute
-    }
-    '/profile': {
-      id: '/profile'
-      path: '/profile'
-      fullPath: '/profile'
-      preLoaderRoute: typeof ProfileImport
       parentRoute: typeof rootRoute
     }
     '/protectedRoutes': {
@@ -95,57 +81,51 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/login': typeof LoginRoute
+  '/apiImplementation': typeof ApiImplementationRoute
   '/navigation': typeof NavigationRoute
-  '/profile': typeof ProfileRoute
   '/protectedRoutes': typeof ProtectedRoutesRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/login': typeof LoginRoute
+  '/apiImplementation': typeof ApiImplementationRoute
   '/navigation': typeof NavigationRoute
-  '/profile': typeof ProfileRoute
   '/protectedRoutes': typeof ProtectedRoutesRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/login': typeof LoginRoute
+  '/apiImplementation': typeof ApiImplementationRoute
   '/navigation': typeof NavigationRoute
-  '/profile': typeof ProfileRoute
   '/protectedRoutes': typeof ProtectedRoutesRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/navigation' | '/profile' | '/protectedRoutes'
+  fullPaths: '/' | '/apiImplementation' | '/navigation' | '/protectedRoutes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/navigation' | '/profile' | '/protectedRoutes'
+  to: '/' | '/apiImplementation' | '/navigation' | '/protectedRoutes'
   id:
     | '__root__'
     | '/'
-    | '/login'
+    | '/apiImplementation'
     | '/navigation'
-    | '/profile'
     | '/protectedRoutes'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  LoginRoute: typeof LoginRoute
+  ApiImplementationRoute: typeof ApiImplementationRoute
   NavigationRoute: typeof NavigationRoute
-  ProfileRoute: typeof ProfileRoute
   ProtectedRoutesRoute: typeof ProtectedRoutesRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  LoginRoute: LoginRoute,
+  ApiImplementationRoute: ApiImplementationRoute,
   NavigationRoute: NavigationRoute,
-  ProfileRoute: ProfileRoute,
   ProtectedRoutesRoute: ProtectedRoutesRoute,
 }
 
@@ -160,23 +140,19 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/login",
+        "/apiImplementation",
         "/navigation",
-        "/profile",
         "/protectedRoutes"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/login": {
-      "filePath": "login.tsx"
+    "/apiImplementation": {
+      "filePath": "apiImplementation.tsx"
     },
     "/navigation": {
       "filePath": "navigation.tsx"
-    },
-    "/profile": {
-      "filePath": "profile.tsx"
     },
     "/protectedRoutes": {
       "filePath": "protectedRoutes.tsx"
