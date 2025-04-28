@@ -16,17 +16,17 @@ const activeProps = {
 export const Route = createRootRouteWithContext<RouterContext>()({
   component: () => (
     <>
-      <div className="p-2 flex gap-2">
-        <Link to="/" className="[&.active]:font-bold">
+      <div className="p-2 flex gap-2 navbar">
+        <Link to="/" activeProps={activeProps} className="[&.active]:font-bold">
           Home
         </Link>{' '}
-        <Link to="/about" className="[&.active]:font-bold">
+        <Link to="/about" activeProps={activeProps} className="[&.active]:font-bold">
           About Us
         </Link>{' '}
-        <Link to="/contacUs" className="[&.active]:font-bold">
+        <Link to="/contacUs" activeProps={activeProps} className="[&.active]:font-bold">
           Contact Us
         </Link>{' '}
-        <Link to="/profile" className="[&.active]:font-bold">
+        <Link to="/profile" activeProps={activeProps} className="[&.active]:font-bold">
           Profile
         </Link>
         <div id='login'>
