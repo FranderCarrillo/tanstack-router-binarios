@@ -11,19 +11,13 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as ProtectedRoutesImport } from './routes/protectedRoutes'
 import { Route as ProfileImport } from './routes/profile'
-import { Route as NavigationImport } from './routes/navigation'
 import { Route as LoginImport } from './routes/login'
+import { Route as ContacUsImport } from './routes/contacUs'
+import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
-
-const ProtectedRoutesRoute = ProtectedRoutesImport.update({
-  id: '/protectedRoutes',
-  path: '/protectedRoutes',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const ProfileRoute = ProfileImport.update({
   id: '/profile',
@@ -31,15 +25,21 @@ const ProfileRoute = ProfileImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const NavigationRoute = NavigationImport.update({
-  id: '/navigation',
-  path: '/navigation',
-  getParentRoute: () => rootRoute,
-} as any)
-
 const LoginRoute = LoginImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ContacUsRoute = ContacUsImport.update({
+  id: '/contacUs',
+  path: '/contacUs',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const AboutRoute = AboutImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -60,18 +60,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutImport
+      parentRoute: typeof rootRoute
+    }
+    '/contacUs': {
+      id: '/contacUs'
+      path: '/contacUs'
+      fullPath: '/contacUs'
+      preLoaderRoute: typeof ContacUsImport
+      parentRoute: typeof rootRoute
+    }
     '/login': {
       id: '/login'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginImport
-      parentRoute: typeof rootRoute
-    }
-    '/navigation': {
-      id: '/navigation'
-      path: '/navigation'
-      fullPath: '/navigation'
-      preLoaderRoute: typeof NavigationImport
       parentRoute: typeof rootRoute
     }
     '/profile': {
@@ -81,13 +88,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileImport
       parentRoute: typeof rootRoute
     }
-    '/protectedRoutes': {
-      id: '/protectedRoutes'
-      path: '/protectedRoutes'
-      fullPath: '/protectedRoutes'
-      preLoaderRoute: typeof ProtectedRoutesImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -95,58 +95,52 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contacUs': typeof ContacUsRoute
   '/login': typeof LoginRoute
-  '/navigation': typeof NavigationRoute
   '/profile': typeof ProfileRoute
-  '/protectedRoutes': typeof ProtectedRoutesRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contacUs': typeof ContacUsRoute
   '/login': typeof LoginRoute
-  '/navigation': typeof NavigationRoute
   '/profile': typeof ProfileRoute
-  '/protectedRoutes': typeof ProtectedRoutesRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contacUs': typeof ContacUsRoute
   '/login': typeof LoginRoute
-  '/navigation': typeof NavigationRoute
   '/profile': typeof ProfileRoute
-  '/protectedRoutes': typeof ProtectedRoutesRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/navigation' | '/profile' | '/protectedRoutes'
+  fullPaths: '/' | '/about' | '/contacUs' | '/login' | '/profile'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/navigation' | '/profile' | '/protectedRoutes'
-  id:
-    | '__root__'
-    | '/'
-    | '/login'
-    | '/navigation'
-    | '/profile'
-    | '/protectedRoutes'
+  to: '/' | '/about' | '/contacUs' | '/login' | '/profile'
+  id: '__root__' | '/' | '/about' | '/contacUs' | '/login' | '/profile'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContacUsRoute: typeof ContacUsRoute
   LoginRoute: typeof LoginRoute
-  NavigationRoute: typeof NavigationRoute
   ProfileRoute: typeof ProfileRoute
-  ProtectedRoutesRoute: typeof ProtectedRoutesRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContacUsRoute: ContacUsRoute,
   LoginRoute: LoginRoute,
-  NavigationRoute: NavigationRoute,
   ProfileRoute: ProfileRoute,
-  ProtectedRoutesRoute: ProtectedRoutesRoute,
 }
 
 export const routeTree = rootRoute
@@ -160,26 +154,26 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/about",
+        "/contacUs",
         "/login",
-        "/navigation",
-        "/profile",
-        "/protectedRoutes"
+        "/profile"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
+    "/about": {
+      "filePath": "about.tsx"
+    },
+    "/contacUs": {
+      "filePath": "contacUs.tsx"
+    },
     "/login": {
       "filePath": "login.tsx"
     },
-    "/navigation": {
-      "filePath": "navigation.tsx"
-    },
     "/profile": {
       "filePath": "profile.tsx"
-    },
-    "/protectedRoutes": {
-      "filePath": "protectedRoutes.tsx"
     }
   }
 }
