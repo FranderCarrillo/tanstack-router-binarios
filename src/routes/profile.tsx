@@ -1,7 +1,9 @@
-import { createFileRoute, redirect, useRouter } from '@tanstack/react-router'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 import { useGetUser } from '../services/User/userHook'
 import '../components/profile.css';
 import ProfileInfo from '../components/ProfileInfo';
+import { useContext } from 'react';
+import ProfileContext from '../Context/ProfileContext';
 
 
 export const Route = createFileRoute('/profile')({
@@ -18,9 +20,10 @@ export const Route = createFileRoute('/profile')({
 
 function Profile() {
   const { user } = useGetUser(1);
-  const router = useRouter();
-  
+  const {setUsername} = useContext(ProfileContext);
+  setUsername(user.name);
+
   return (
-    <ProfileInfo User={user} router={router} />
+    <ProfileInfo User={user}/>
   );
 }

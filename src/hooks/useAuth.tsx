@@ -1,6 +1,7 @@
-export const useAuth = () => {
+export const useAuth = (username: string) => {
   const signIn = () => {
     localStorage.setItem("isAuthenticated", "true");
+    localStorage.setItem("username", username); 
   };
 
   const signOut = () => {

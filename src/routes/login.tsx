@@ -1,6 +1,8 @@
 import { createFileRoute, useRouter } from '@tanstack/react-router';
 import { isAuthenticated, signIn, signOut } from '../utils/auth';
 import '/src/App.css';
+import { useContext } from 'react';
+import ProfileContext from '../Context/ProfileContext';
 
 export const Route = createFileRoute('/login')({
   component: Login,
@@ -8,6 +10,12 @@ export const Route = createFileRoute('/login')({
 
 function Login() {
   const router = useRouter();
+  const {setUsername, username} = useContext(ProfileContext);
+
+  const handleChangeLogin = () => {
+    setUsername("Login");                                           
+  }
+
 
   return (
     <div className="login-container">
@@ -15,13 +23,14 @@ function Login() {
 
       {isAuthenticated() ? (
         <div className="login-content">
-          <p className="login-message">Hello, user! 🎉</p>
+          <p className="login-message">Hello, {username}! 🎉</p>
           <button
             className="logout-button"
             onClick={async () => {
               signOut();
               router.invalidate();
-            }}
+              handleChangeLogin();
+            }} 
           >
             Sign out
           </button>
