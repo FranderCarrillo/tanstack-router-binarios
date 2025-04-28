@@ -13,6 +13,7 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as ProtectedRoutesImport } from './routes/protectedRoutes'
 import { Route as NavigationImport } from './routes/navigation'
+import { Route as InstalationImport } from './routes/instalation'
 import { Route as ApiImplementationImport } from './routes/apiImplementation'
 import { Route as IndexImport } from './routes/index'
 
@@ -27,6 +28,12 @@ const ProtectedRoutesRoute = ProtectedRoutesImport.update({
 const NavigationRoute = NavigationImport.update({
   id: '/navigation',
   path: '/navigation',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const InstalationRoute = InstalationImport.update({
+  id: '/instalation',
+  path: '/instalation',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -60,6 +67,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiImplementationImport
       parentRoute: typeof rootRoute
     }
+    '/instalation': {
+      id: '/instalation'
+      path: '/instalation'
+      fullPath: '/instalation'
+      preLoaderRoute: typeof InstalationImport
+      parentRoute: typeof rootRoute
+    }
     '/navigation': {
       id: '/navigation'
       path: '/navigation'
@@ -82,6 +96,7 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/apiImplementation': typeof ApiImplementationRoute
+  '/instalation': typeof InstalationRoute
   '/navigation': typeof NavigationRoute
   '/protectedRoutes': typeof ProtectedRoutesRoute
 }
@@ -89,6 +104,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/apiImplementation': typeof ApiImplementationRoute
+  '/instalation': typeof InstalationRoute
   '/navigation': typeof NavigationRoute
   '/protectedRoutes': typeof ProtectedRoutesRoute
 }
@@ -97,19 +113,31 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/apiImplementation': typeof ApiImplementationRoute
+  '/instalation': typeof InstalationRoute
   '/navigation': typeof NavigationRoute
   '/protectedRoutes': typeof ProtectedRoutesRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/apiImplementation' | '/navigation' | '/protectedRoutes'
+  fullPaths:
+    | '/'
+    | '/apiImplementation'
+    | '/instalation'
+    | '/navigation'
+    | '/protectedRoutes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/apiImplementation' | '/navigation' | '/protectedRoutes'
+  to:
+    | '/'
+    | '/apiImplementation'
+    | '/instalation'
+    | '/navigation'
+    | '/protectedRoutes'
   id:
     | '__root__'
     | '/'
     | '/apiImplementation'
+    | '/instalation'
     | '/navigation'
     | '/protectedRoutes'
   fileRoutesById: FileRoutesById
@@ -118,6 +146,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiImplementationRoute: typeof ApiImplementationRoute
+  InstalationRoute: typeof InstalationRoute
   NavigationRoute: typeof NavigationRoute
   ProtectedRoutesRoute: typeof ProtectedRoutesRoute
 }
@@ -125,6 +154,7 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiImplementationRoute: ApiImplementationRoute,
+  InstalationRoute: InstalationRoute,
   NavigationRoute: NavigationRoute,
   ProtectedRoutesRoute: ProtectedRoutesRoute,
 }
@@ -141,6 +171,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/apiImplementation",
+        "/instalation",
         "/navigation",
         "/protectedRoutes"
       ]
@@ -150,6 +181,9 @@ export const routeTree = rootRoute
     },
     "/apiImplementation": {
       "filePath": "apiImplementation.tsx"
+    },
+    "/instalation": {
+      "filePath": "instalation.tsx"
     },
     "/navigation": {
       "filePath": "navigation.tsx"

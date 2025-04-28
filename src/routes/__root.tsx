@@ -9,6 +9,9 @@ export const Route = createRootRoute({
         <Link to="/" className="[&.active]:font-bold">
           TanStack Router
         </Link>{' '}
+        <Link to="/instalation" className="[&.active]:font-bold">
+          Instalation
+        </Link>{' '}
         <Link to="/navigation" className="[&.active]:font-bold">
           Navigation
         </Link>{' '}
