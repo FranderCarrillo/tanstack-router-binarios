@@ -92,3 +92,8 @@
 .logout-button:hover {
   background-color: #ff7875;
 }
+
+.navbar{
+  display: flex;
+  justify-content: space-evenly;
+}
