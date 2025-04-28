@@ -1,24 +1,30 @@
 import { createRootRoute, Link, Outlet } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
+const activeProps = {
+  style: {
+    fontWeight: "bold",
+    color: "white",
+  },
+};
 
 export const Route = createRootRoute({
   component: () => (
     <>
-      <div className="p-2 flex gap-2">
-        <Link to="/" className="[&.active]:font-bold">
+      <div className="p-2 flex gap-2 navbar">
+        <Link to="/" activeProps={activeProps}>
           TanStack Router
         </Link>{' '}
-        <Link to="/instalation" className="[&.active]:font-bold">
+        <Link to="/instalation" activeProps={activeProps}>
           Instalation
         </Link>{' '}
-        <Link to="/navigation" className="[&.active]:font-bold">
+        <Link to="/navigation" activeProps={activeProps}>
           Navigation
         </Link>{' '}
-        <Link to="/protectedRoutes" className="[&.active]:font-bold">
+        <Link to="/protectedRoutes" activeProps={activeProps}>
           Protected Routes
         </Link>{' '}
-        <Link to="/apiImplementation" className="[&.active]:font-bold">
+        <Link to="/apiImplementation" activeProps={activeProps}>
           Api Implementation
         </Link>
       </div>

@@ -1,101 +1,86 @@
-body{
-    background-color: #3c474bff;
-    font-family: Arial, sans-serif;
+body {
+  background-color: #23262e; /* Gris oscuro, no tan negro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.Navigation-info{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    width: 100%; 
-    background-color: #3c474bff;
-    font-family: Arial, sans-serif;
-    
+.Navigation-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #23262e;
 }
 
-.Navigation-info-container{
-
-    height: 100%;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    max-width: 70%;
-    margin: 0 ;
-    padding: 0;
-
+.Navigation-info-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
 }
 
-.titles-guide-navigation{
-    color: #fff;
-    font-size: 1.5rem;
-    
+.titles-guide-navigation {
+  color: #ffffff;
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  font-weight: 600;
 }
 
-.guide-navigation-steps{
-    width: 100%;
-    
+.guide-navigation-steps {
+  width: 100%;
 }
 
-.guide-navigation-first-step-container-paths{
-    
-    color: #f5f5f5; 
-    font-family: monospace; 
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
+.guide-navigation-first-step-container-paths {
+  color: #dddddd;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
+.code-block-content {
+  background-color: #2d313b;
+  color: #f1f1f1;
+  border-radius: 10px;
+  padding: 18px;
+  border: 1px solid #7689a3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  font-size: 15px;
+  margin: 15px 0;
+}
 
+.text-guide-navigation {
+  color: #e0e0e0;
+  font-family: monospace;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 1.5rem;
+}
 
-.code-block-content{
-    color: white;
-    width: 100%;
-    border-radius: 16px;
-    background-color: #162521ff;
-    padding: 12px;
-    border: 2px solid #a1fe20ff;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-    font-size: 15px;
-  }
+/* Colores suaves pero claros */
+.azul {
+  color: #89b4f8; /* Azul claro */
+}
 
-  .text-guide-navigation{
-    color: #f5f5f5; 
-    font-family: monospace; 
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    margin-top: 1rem;
-  }
+.gris {
+  color: #b0b8c1; /* Gris bien suave */
+}
 
+.naranja {
+  color: #f4b183; /* Naranja pastel */
+}
 
-  .morado {
-    color: #c792ea;
-  }
-
-  .azul {
-    color: #82aaff;
-  }
-
-  .gris {
-    color: #999999;
-  }
-  .naranja{
-    color: navajowhite;
-  }
-  
-  .references {
-    background-color: #162521ff;
-    color: white;
-    padding: 10px;
-    border-left: 5px solid #a1fe20ff;
-    margin: 20px 0;
-    list-style: none;
-    text-align: left; 
+.references {
+  background-color: #2d313b;
+  color: #f1f1f1;
+  padding: 14px;
+  border-left: 4px solid #7689a3;
+  margin: 25px 0;
+  list-style: none;
+  text-align: left;
+  font-size: 16px;
 }
