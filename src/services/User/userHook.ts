@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { getUserById} from "./userService";
-import { User } from "../../models/user";
+import { User, UserInitialState } from "../../models/user";
 
 
 export const useGetUser = (id: number) => {
     
-    const [user, setUser] = useState<User>();
+    const [user, setUser] = useState<User>(UserInitialState);
 
     useEffect(() => {
         (async () => {

@@ -9,6 +9,7 @@ const userCard=({user}:CardUserProps)=>{
         <div>
             <h2>{user?.name}</h2>
             <h4>{user?.email}</h4>
+            <img src={user?.avatar} alt="" />
         </div>
     );
 }

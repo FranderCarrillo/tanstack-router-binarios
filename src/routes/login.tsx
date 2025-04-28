@@ -1,6 +1,6 @@
 import { createFileRoute, useRouter } from '@tanstack/react-router';
 import { isAuthenticated, signIn, signOut } from '../utils/auth';
-import '/src/App.css'; // 👈 Asegúrate de importar el CSS aquí
+import '/src/App.css';
 
 export const Route = createFileRoute('/login')({
   component: Login,
@@ -34,6 +34,7 @@ function Login() {
             onClick={async () => {
               signIn();
               router.invalidate();
+              await router.navigate({ to: '/profile' }); 
             }}
           >
             Sign in

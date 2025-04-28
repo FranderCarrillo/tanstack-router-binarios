@@ -1,10 +1,14 @@
-import React from 'react';
-import { useGetUser } from '../services/User/userHook';
 import './profile.css'; 
 import UserCard from '../card/user/UserCard';
+import { User } from '../models/user';
+import { signOut } from '../utils/auth';
 
-const ProfileInfo = () => {
-  const { user } = useGetUser(1);
+type ProfileProps = {
+  User: User;
+  router: any; // Adjust the type according to your router implementation
+}
+
+const ProfileInfo = ({ User, router }: ProfileProps) => {
 
   return (
     <div className="profile-container">
@@ -14,9 +18,20 @@ const ProfileInfo = () => {
       </header>
 
       <section className="profile-content">
-        <UserCard user={user} />
+        <UserCard user={User} />
         <br />
         <br />
+
+        <button
+            className="logout-button"
+            onClick={async () => {
+              signOut();
+              router.invalidate();
+            }}
+          >
+            Sign out
+        </button>
+
       </section>
 
       <footer className="profile-footer">
