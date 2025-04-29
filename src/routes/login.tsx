@@ -19,11 +19,11 @@ function Login() {
 
   return (
     <div className="login-container">
-      <h2 className="login-title">Welcome to the Login Page</h2>
+      <h2 className="login-title">Bienvenido a AutoVentas</h2>
 
       {isAuthenticated() ? (
         <div className="login-content">
-          <p className="login-message">Hello, {username}! 🎉</p>
+          <p className="login-message">Hola, {username}! 🎉</p>
           <button
             className="logout-button"
             onClick={async () => {
@@ -32,12 +32,12 @@ function Login() {
               handleChangeLogin();
             }} 
           >
-            Sign out
+            Cerrar Sesión
           </button>
         </div>
       ) : (
         <div className="login-content">
-          <p className="login-message">Please sign in to continue 🚀</p>
+          <p className="login-message">Por favor, inicie sesión para continuar 🚀</p>
           <button
             className="login-button"
             onClick={async () => {
@@ -46,7 +46,7 @@ function Login() {
               await router.navigate({ to: '/profile' }); 
             }}
           >
-            Sign in
+            Iniciar Sesión
           </button>
         </div>
       )}

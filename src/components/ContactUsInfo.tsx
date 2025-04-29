@@ -1,5 +1,4 @@
-import React from 'react';
-import './contactUsInfo.css'; // Importa el CSS separado
+
 
 const ContactUsInfo = () => {
   return (

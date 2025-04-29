@@ -1,6 +1,6 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { useGetUser } from '../services/User/userHook'
-import '../components/profile.css';
+
 import ProfileInfo from '../components/ProfileInfo';
 import { useContext } from 'react';
 import ProfileContext from '../Context/ProfileContext';

@@ -22,16 +22,16 @@ export const Route = createRootRouteWithContext<RouterContext>()({
       <>
         <div className="p-2 flex gap-2 navbar">
           <Link to="/" activeProps={activeProps} className="[&.active]:font-bold">
-            Home
+            Inicio
           </Link>{' '}
           <Link to="/about" activeProps={activeProps} className="[&.active]:font-bold">
-            About Us
+            Sobre Nosotros
           </Link>{' '}
           <Link to="/contacUs" activeProps={activeProps} className="[&.active]:font-bold">
-            Contact Us
+            Contacto
           </Link>{' '}
           <Link to="/profile" activeProps={activeProps} className="[&.active]:font-bold">
-            Profile
+            Perfil
           </Link>
           <div id='login'>
             <Link to="/login" activeProps={activeProps} className="[&.active]:font-bold">

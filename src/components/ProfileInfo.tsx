@@ -1,4 +1,4 @@
-import './profile.css'; 
+
 import UserCard from '../card/user/UserCard';
 import { User } from '../models/user';
 type ProfileProps = {
