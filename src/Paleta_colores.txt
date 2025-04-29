@@ -1,5 +1,0 @@
-/* CSS HEX */
---green-yellow: #a1fe20ff;
---mint-green: #c0e0deff;
---outer-space: #3c474bff;
---gunmetal: #162521ff;

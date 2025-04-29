@@ -1,5 +1,4 @@
-import React from 'react'
-import './navigationInfo.css'
+
 
 const NavigationInfo = () => {
   return (
@@ -13,7 +12,7 @@ const NavigationInfo = () => {
           <div className='guide-navigation-steps'>
 
             <h2 className='titles-guide-navigation'>Primer paso</h2>
-            <p className='text-guide-navigation'>Una vez instalado Tanstack Router,Crea la siguiente ruta de carpeta y archivos.</p>
+            <p className='text-guide-navigation'>Una vez instalado Tanstack Router, crea la siguiente ruta de carpeta y archivo.</p>
 
             <div className='guide-navigation-first-step-container-paths'>
               <h3 className='text-guide-navigation'>src/routes/__root.tsx</h3>
@@ -53,7 +52,7 @@ export const Route = createRootRoute({
           
           <div className='guide-navigation-steps'>
             <h2 className='titles-guide-navigation'>Segundo paso</h2>
-            <p className='text-guide-navigation'>Luego de completar el primer paso, crearás las siguientes rutas de archivos.</p>
+            <p className='text-guide-navigation'>Luego de completar el primer paso, debes crear las siguientes rutas de archivos.</p>
 
             <div className='guide-navigation-first-step-container-paths'>
               <h3 className='text-guide-navigation'>src/routes/index.tsx</h3>
@@ -100,12 +99,12 @@ function About() {
 
           <div className='guide-navigation-steps'>
               <h2 className='titles-guide-navigation'>Tercer paso</h2>
-              <p className='text-guide-navigation'>Finalmente, se modifica el siguiente archivo de tal manera que quede así.</p>
+              <p className='text-guide-navigation'>Luego, modifica el siguiente archivo de tal manera que quede así.</p>
 
               <div className='guide-navigation-first-step-container-paths'>
                 <h3 className='text-guide-navigation'>src/main.tsx</h3>
-                <h3 className='text-guide-navigation'>o en cualquer componente que se quiera renderizar, no necesariamente en el main.tsx .Pero en este primer ejemplo se hará en el main.tsx 
-                </h3>
+                <p className='text-guide-navigation'>O en cualquier componente que se quiera renderizar, no necesariamente en el main.tsx. Pero en este primer ejemplo se hará en el main.tsx 
+                </p>
               </div>
 
               <pre className="code-block-content">
@@ -148,7 +147,7 @@ if (!rootElement.innerHTML) {
               <h2 className='titles-guide-navigation'>Cuarto paso</h2>
               
               <div className='guide-navigation-first-step-container-paths'>
-                <h3 className='text-guide-navigation'>Ejecuta el comando</h3>
+                <h3 className='text-guide-navigation'>Finalmente, ejecuta el comando</h3>
               </div>
 
               <pre className="code-block-content">
@@ -158,12 +157,12 @@ if (!rootElement.innerHTML) {
               </code>
             </pre>
 
-            <p className='text-guide-navigation'>Una vez ejecutado el comando se creará el archivo </p>
+            <p className='text-guide-navigation'>Una vez ejecutado el comando se creará el archivo automáticamente en la carpeta src</p>
       
               <div className='guide-navigation-first-step-container-paths'>
                 <h3 className='text-guide-navigation'>routeTree.gen.ts</h3>
               </div>
-               <p className='text-guide-navigation'>que no debes tocar, allí se generarán las rutas de la aplicación automáticamente, cada vez que crees un nuevo archivo dentro de <strong>__root.tsx</strong> y ejecutes el programa.</p>
+               <p className='text-guide-navigation'>Que no debes tocar, allí se generarán las rutas de la aplicación automáticamente, cada vez que crees un nuevo archivo dentro de <b>src/routes/__root.tsx</b> y ejecutes el programa.</p>
 
             </div>  
           </div>

@@ -1,6 +1,5 @@
-import React from 'react'
-import './navigationInfo.css'
-import { Link } from '@tanstack/react-router'
+
+
 const ProtectedRoutesInfo = () => {
   return (
     <div>
@@ -17,7 +16,7 @@ const ProtectedRoutesInfo = () => {
 
             <h2 className='titles-guide-navigation'>Primer paso</h2>
 
-            <p className='text-guide-navigation'>Crea la siguiente ruta de archivos y coloca lo siguiente, esto para crear una hook de autenticación, donde se permite, Iniciar, Cerrar y verificar la sesión.</p>
+            <p className='text-guide-navigation'>Crea la siguiente ruta de archivos y coloca lo siguiente, esto para crear una hook de autenticación, donde se permite iniciar, cerrar y verificar la sesión.</p>
 
               <div className='guide-navigation-first-step-container-paths'>
                 <h3 className='text-guide-navigation'>src/hooks/useAuth.tsx</h3>

@@ -1,4 +1,4 @@
-import './navigationInfo.css'
+
 
 const TanstackRouterInfo = () => {
   return (
@@ -34,9 +34,11 @@ const TanstackRouterInfo = () => {
             </ol>
     
             <div className="references">
+            <ul>
                 <b>Referencias:</b> <li><a href="https://tanstack.com/router/latest" target="_blank">https://tanstack.com/router/latest</a></li>
                 <li><a href="https://www.youtube.com/watch?v=O6dS0_IvvK0&ab_channel=DevLeonardo" target="_blank">https://www.youtube.com/watch?v=O6dS0_IvvK0&ab_channel=DevLeonardo</a></li>
                 <li><a href="https://www.youtube.com/watch?v=KcKkwF55Pes" target="_blank">https://www.youtube.com/watch?v=KcKkwF55Pes</a></li>
+            </ul>
             </div>
         </div>
     </div>

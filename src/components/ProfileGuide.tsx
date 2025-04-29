@@ -1,5 +1,5 @@
-import React from 'react';
-import './navigationInfo.css'
+
+
 export const ProfileGuide = () => {
   return (
     <section className='Navigation-info'>
@@ -8,70 +8,9 @@ export const ProfileGuide = () => {
 
         <h1 className='titles-guide-navigation'>Guía Mostrar Usuario Protegido con TanStack Router</h1>
 
-        {/* PASO 1 */}
+        
         <div className='guide-navigation-steps'>
           <h2 className='titles-guide-navigation'>Primer paso</h2>
-          <p className='text-guide-navigation'>
-            Crea el archivo <strong>src/api/apiConfig.ts</strong> para configurar la URL base de la API.
-          </p>
-          <pre className="code-block-content">
-            <code>
-{`export const apiUrl = "https://jsonplaceholder.typicode.com";`}
-            </code>
-          </pre>
-        </div>
-
-        {/* PASO 2 */}
-        <div className='guide-navigation-steps'>
-          <h2 className='titles-guide-navigation'>Segundo paso</h2>
-          <p className='text-guide-navigation'>
-            Crea el archivo <strong>src/services/User/userService.ts</strong> para hacer peticiones a la API y obtener datos de un usuario.
-          </p>
-          <pre className="code-block-content">
-            <code>
-{`import { apiUrl } from "../../api/apiConfig";
-import { User } from "../../models/user";
-
-export async function getUserById(id: number): Promise<User> {
-  const response = await fetch(\`\${apiUrl}/users/\${id}\`);
-  const users = await response.json();
-  return users;
-}`}
-            </code>
-          </pre>
-        </div>
-
-        {/* PASO 3 */}
-        <div className='guide-navigation-steps'>
-          <h2 className='titles-guide-navigation'>Tercer paso</h2>
-          <p className='text-guide-navigation'>
-            Crea el archivo <strong>src/services/User/userHook.ts</strong> para obtener un usuario utilizando React Hooks.
-          </p>
-          <pre className="code-block-content">
-            <code>
-{`import { useEffect, useState } from "react";
-import { getUserById } from "./userService";
-import { User } from "../../models/user";
-
-export const useGetUser = (id: number) => {
-  const [user, setUser] = useState<User>();
-
-  useEffect(() => {
-    (async () => {
-      const userResponse = await getUserById(id);
-      setUser(userResponse);
-    })();
-  }, []);
-
-  return { user };
-};`}
-            </code>
-          </pre>
-        </div>
-
-        {/* PASO 4 */}
-        <div className='guide-navigation-steps'>
-          <h2 className='titles-guide-navigation'>Cuarto paso</h2>
           <p className='text-guide-navigation'>
             Crea el archivo <strong>src/models/user.ts</strong> para definir la estructura del objeto Usuario.
           </p>
@@ -92,7 +31,68 @@ export const UserInitialState = {
           </pre>
         </div>
 
-        {/* PASO 5 */}
+        
+        <div className='guide-navigation-steps'>
+          <h2 className='titles-guide-navigation'>Segundo paso</h2>
+          <p className='text-guide-navigation'>
+            Crea el archivo <strong>src/api/apiConfig.ts</strong> para configurar la URL base de la API.
+          </p>
+          <pre className="code-block-content">
+            <code>
+{`export const apiUrl = "https://jsonplaceholder.typicode.com";`}
+            </code>
+          </pre>
+        </div>
+
+        
+        <div className='guide-navigation-steps'>
+          <h2 className='titles-guide-navigation'>Tercer paso</h2>
+          <p className='text-guide-navigation'>
+            Crea el archivo <strong>src/services/User/userService.ts</strong> para hacer peticiones a la API y obtener datos de un usuario.
+          </p>
+          <pre className="code-block-content">
+            <code>
+{`import { apiUrl } from "../../api/apiConfig";
+import { User } from "../../models/user";
+
+export async function getUserById(id: number): Promise<User> {
+  const response = await fetch(\`\${apiUrl}/users/\${id}\`);
+  const users = await response.json();
+  return users;
+}`}
+            </code>
+          </pre>
+        </div>
+
+        
+        <div className='guide-navigation-steps'>
+          <h2 className='titles-guide-navigation'>Cuarto paso</h2>
+          <p className='text-guide-navigation'>
+            Crea el archivo <strong>src/services/User/userHook.ts</strong> para obtener un usuario utilizando React Hooks.
+          </p>
+          <pre className="code-block-content">
+            <code>
+{`import { useEffect, useState } from "react";
+import { getUserById } from "./userService";
+import { User } from "../../models/user";
+
+export const useGetUser = (id: number) => {
+  const [user, setUser] = useState<User>(UserInitialState);
+
+  useEffect(() => {
+    (async () => {
+      const userResponse = await getUserById(id);
+      setUser(userResponse);
+    })();
+  }, []);
+
+  return { user };
+};`}
+            </code>
+          </pre>
+        </div>
+
+        
         <div className='guide-navigation-steps'>
           <h2 className='titles-guide-navigation'>Quinto paso</h2>
           <p className='text-guide-navigation'>
@@ -103,14 +103,14 @@ export const UserInitialState = {
 {`import { User } from "../../models/user";
 
 type CardUserProps = {
-  user: User | undefined;
+  user: User;
 };
 
 const UserCard = ({ user }: CardUserProps) => {
   return (
     <div>
-      <h2>{user?.name}</h2>
-      <h4>{user?.email}</h4>
+      <h2>{user.name}</h2>
+      <h4>{user.email}</h4>
     </div>
   );
 };
@@ -120,7 +120,7 @@ export default UserCard;`}
           </pre>
         </div>
 
-        {/* PASO 6 */}
+        
         <div className='guide-navigation-steps'>
           <h2 className='titles-guide-navigation'>Sexto paso</h2>
           <p className='text-guide-navigation'>
@@ -161,6 +161,9 @@ function Profile() {
           <h2 className='titles-guide-navigation'>Nota final</h2>
           <p className='text-guide-navigation'>
             En este ejemplo se obtiene un usuario de la API pública <strong>JSONPlaceholder</strong> y se muestra su información. El acceso a la ruta <strong>/profile</strong> está protegido, por lo que el usuario deberá estar autenticado para visualizarla.
+          </p>
+          <p className='text-guide-navigation'>
+            Además, <strong>/profile</strong> deberá estar dentro de la carpeta <strong>src/routes</strong> para crear la ruta automáticamente.
           </p>
         </div>
 

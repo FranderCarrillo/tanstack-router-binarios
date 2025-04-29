@@ -1,4 +1,4 @@
-import './navigationInfo.css'
+
 
 const InstalationGuide = () => {
   return (
