@@ -43,6 +43,7 @@ const InstalationGuide = () => {
       <pre className="code-block-content">
           <span className="morado">npm</span><span className="azul"> install @tanstack/react-router @tanstack/react-router-devtools</span><br />
           <span className="morado">npm</span><span className="azul"> install</span><span className="naranja"> -D</span><span className="azul"> @tanstack/router-plugin</span><br />
+          <span className="morado">npm</span><span className="azul"> install</span><span className="naranja"> -D</span><span className="azul"> @vitejs/plugin-react --save-dev</span><br />
           <span className="gris"># or</span><br />
           <span className="morado">pnpm</span><span className="azul"> add @tanstack/react-router @tanstack/react-router-devtools</span><br />
           <span className="morado">pnpm</span><span className="azul"> add</span><span className="naranja"> -D</span><span className="azul"> @tanstack/router-plugin</span><br />
