@@ -57,8 +57,19 @@ const InstalationGuide = () => {
         </pre>
       </div>
 
-      <div><h2 className='titles-guide-navigation'>Configuración del complemento Vite</h2></div>
       <div>
+        <h2 className='titles-guide-navigation'>Configuración del complemento Vite</h2></div>
+      <div>
+      
+      <p className="text-guide-navigation">
+        Para aprovechar la creación dinámica de rutas, verifica que el plugin de Vite esté configurado correctamente.
+      </p>
+
+        
+      <div className='guide-navigation-first-step-container-paths'>
+          <h3 className='text-guide-navigation'>vite.config.ts</h3>
+      </div>
+
       <pre className="code-block-content">
               import {'{'} defineConfig {'}'} from 'vite'<br />
               import react from '@vitejs/plugin-react'<br />
