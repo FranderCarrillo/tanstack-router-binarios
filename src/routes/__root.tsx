@@ -16,7 +16,7 @@ export const Route = createRootRoute({
           TanStack Router
         </Link>{' '}
         <Link to="/instalation" activeProps={activeProps}>
-          Instalation
+          Instalación
         </Link>{' '}
         <Link to="/navigation" activeProps={activeProps}>
           Navigation
@@ -25,7 +25,7 @@ export const Route = createRootRoute({
           Protected Routes
         </Link>{' '}
         <Link to="/apiImplementation" activeProps={activeProps}>
-          Api Implementation
+          Implemetación API
         </Link>
       </div>
       <hr />
